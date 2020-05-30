@@ -27,6 +27,8 @@ gem 'devise', '~>4.7.1'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'gravatar_image_tag','~>1.2.0'
+gem 'binding_of_caller','~>0.8.0'
+gem 'therubyracer', :platforms => :ruby
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
