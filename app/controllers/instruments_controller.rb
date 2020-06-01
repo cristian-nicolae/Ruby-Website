@@ -6,6 +6,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments.json
   def index
     @instruments = Instrument.all.order("created_at desc")
+    @smartphones = Smartphone.all.order("created_at desc")
   end
 
   # GET /instruments/1

@@ -1,7 +1,7 @@
 <div class="columns">
   <div class="column is-8 is-centered">
 
-    <%= simple_form_for @instrument, html: { multipart: true } do |f| %>
+    <%= simple_form_for @smartphone, html: { multipart: true } do |f| %>
       <%= f.error_notification %>
 
         <div class="columns">
@@ -32,66 +32,95 @@
           </div>
         </div>
 
-        <div class="columns">
+        <div class="columns is-multiline">
           <div class="field column is-4">
             <div class="control">
               <label class="label">Brand</label>
               <div class="control has-icons-left">
                 <span class="select">
-                  <%= f.input_field :brand, collection: Instrument::BRAND, prompt: "Select brand" %>
+                  <%= f.input_field :brand, collection: Smartphone::BRAND, prompt: "Select brand" %>
                 </span>
                 <span class="icon is-small is-left">
                   <i class="fa fa-tag"></i>
                 </span>
               </div>
-            </div>
-           </div>
 
-          <div class="field column is-4">
-            <div class="control">
-              <label class="label">Finish</label>
+              <div class="control">
+              <label class="label">Type</label>
               <div class="control has-icons-left">
                 <span class="select">
-                  <%= f.input_field :finish, collection: Instrument::FINISH, prompt: "Select finish" %>
+                  <%= f.input_field :type, collection: Smartphone::TYPE, prompt: "Select type" %>
                 </span>
                 <span class="icon is-small is-left">
                   <i class="fa fa-paint-brush"></i>
                 </span>
               </div>
             </div>
+
+            </div>
            </div>
+
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Color</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :color, collection: Smartphone::COLOR, prompt: "Select color" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+
+            
+
+           </div>
+
+
 
           <div class="field column is-4">
             <div class="control">
               <label class="label">Condition</label>
               <div class="control has-icons-left">
                 <span class="select">
-                  <%= f.input_field :condition, collection: Instrument::CONDITION, prompt: "Select condition" %>
+                  <%= f.input_field :condition, collection: Smartphone::CONDITION, prompt: "Select condition" %>
                 </span>
                 <span class="icon is-small is-left">
                   <i class="fa fa-paint-brush"></i>
                 </span>
               </div>
             </div>
+
            </div>
+
+
          </div>
 
+         
+        
         <div class="field">
           <div class="control">
             <label class="label">Add images</label>
               <div class="file">
               <label class="file-label">
-                <%= f.input :image, as: :file, input_html: { class:"file-input instrument-image" }, label: false, wrapper: false %>
+                <%= f.input :image, as: :file, input_html: { class:"file-input smartphone-image" }, label: false, wrapper: false %>
                   <span class="file-cta">
                     <span class="file-icon"><i class="fa fa-upload"></i></span>
                     <span class="file-label">Choose a file…</span>
                   </span>
+                  
               </label>
               </div>
             </div>
           </div>
           <output id="list"></output>
         <hr />
+
+
+
+
+
 
         <div class="field is-grouped">
           <div class="control">

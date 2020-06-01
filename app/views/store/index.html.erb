@@ -1,2 +1,120 @@
-<h1>Store#index</h1>
-<p>Find me in app/views/store/index.html.erb</p>
+<% content_for :header do %>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        A different e-marketplace
+      </h1>
+    </div>
+  </div>
+</section>
+<% end %>
+
+
+<!-- Panel Section -->
+<div class="columns" style="margin-top: 15px">
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'All', root_path, class: "button is-fullwidth is-dark" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Instruments', instruments_path, class: "button is-fullwidth is-primary" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Smartphones', smartphones_path, class: "button is-fullwidth is-link" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Laptops', "#", class: "button is-fullwidth is-success" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Bycicles', "#", class: "button is-fullwidth is-info" %>
+    </li>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="smartphone-index-grid pt4">
+  <% @smartphones.each do |smartphone| %>
+
+    <div class="smartphone border-light">
+      <div class="smartphone-thumb">
+      <%= link_to image_tag(smartphone.image_url(:thumb)), smartphone %>
+
+      <% if smartphone.condition? %>
+        <div class="condition">
+          <span class="tag is-dark"><%= smartphone.condition %></span>
+        </div>
+      <% end %>
+      </div>
+
+
+    <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= link_to smartphone.title, smartphone %></h3>
+
+      <p class="has-text-gray fg pt1">Sold by <%= smartphone.user.name %></p>
+
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(smartphone.price) %></p>
+
+      <% if smartphone_author(smartphone) %>
+         <%= link_to 'Edit', edit_smartphone_path(smartphone), class: "button is-small" %>
+         <%= link_to 'Delete', smartphone, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+
+      <% end %>
+      <span class="tag is-dark">Mobile</span>
+
+    </div>
+  </div>
+  <% end %>
+  
+</div>
+
+
+<div class="instrument-index-grid pt4">
+  <% @instruments.each do |instrument| %>
+
+    <div class="instrument border-light">
+      <div class="instrument-thumb">
+      <%= link_to image_tag(instrument.image_url(:thumb)), instrument %>
+
+      <% if instrument.condition? %>
+        <div class="condition">
+          <span class="tag is-dark"><%= instrument.condition %></span>
+        </div>
+      <% end %>
+      </div>
+
+
+    <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= link_to instrument.title, instrument %></h3>
+
+      <p class="has-text-gray fg pt1">Sold by <%= instrument.user.name %></p>
+
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(instrument.price) %></p>
+
+      <% if instrument_author(instrument) %>
+         <%= link_to 'Edit', edit_instrument_path(instrument), class: "button is-small" %>
+         <%= link_to 'Delete', instrument, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+
+      <% end %>
+      <span class="tag is-primary">Guitar</span>
+
+    </div>
+  </div>
+  <% end %>
+  
+  
+</div>
