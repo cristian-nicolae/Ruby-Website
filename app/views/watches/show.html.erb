@@ -1,0 +1,73 @@
+<% content_for :body_class, 'bg-light' %>
+
+<section class="section watch-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @watch.title %></h1>
+
+      <ul class="pv1">
+        <% if @watch.brand? %>
+        <li class="inline-block pr3"><%= @watch.brand %></li>
+        <% end %>
+
+        <li class="inline-block pr3"><%= @watch.model %></li>
+
+        <% if @watch.condition? %>
+        <li class="inline-block pr3"><%= @watch.condition %></li>
+        <% end %>
+      </ul>
+
+      <div class="feature-image">
+        <%= image_tag(@watch.image_url(:default)) %>
+      </div>
+
+      <div class="content pa4 mt3 bg-white border-radius-3">
+
+      <h3 class="subtitle is-4">Description</h3>
+      <%= @watch.description %>
+
+
+      <h3 class="subtitle is-4 pt5">Product Specs</h3>
+
+      <table class="table is-narrow">
+        <% if @watch.condition %>
+        <tr>
+          <td class="has-text-weight-bold">Condition:</td>
+          <td><%= @watch.condition %></td>
+        </tr>
+        <% end %>
+
+        <% if @watch.color %>
+          <tr>
+            <td class="has-text-weight-bold">Color:</td>
+            <td><%= @watch.color %></td>
+          </tr>
+        <% end %>
+
+        <% if @watch.brand %>
+          <tr>
+            <td class="has-text-weight-bold">Brand:</td>
+            <td><%= @watch.brand %></td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td class="has-text-weight-bold">Model:</td>
+          <td><%= @watch.model %></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@watch.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @watch.user.name %></p>
+        <%= button_to 'Add to cart', '#', class: 'button is-warning add-to-cart' %>
+      </div>
+    </div>
+  </div>
+
+  <% if watch_author(@watch) %>
+    <%= link_to 'Edit', edit_watch_path(@watch), class: 'button' %>
+  <% end %>
+</section>

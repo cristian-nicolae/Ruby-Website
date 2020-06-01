@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :watches
+  resources :laptops
   resources :smartphones
   resources :instruments
   resources :store

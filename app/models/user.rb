@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :instruments
   has_many :smartphones
+  has_many :laptops
+  has_many :watches
 
 
 end

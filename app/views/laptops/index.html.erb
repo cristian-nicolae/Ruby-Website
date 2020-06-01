@@ -1,0 +1,80 @@
+<% content_for :header do %>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Sell your used goods here!
+      </h1>
+    </div>
+  </div>
+</section>
+<% end %>
+
+
+<!-- Panel Section -->
+<div class="columns" style="margin-top: 15px">
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'All', root_path, class: "button is-fullwidth is-dark" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Instruments', instruments_path, class: "button is-fullwidth is-primary" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Smartphones', smartphones_path, class: "button is-fullwidth is-link" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Laptops', laptops_path, class: "button is-fullwidth is-success" %>
+    </li>
+  </div>
+  <div class="column">
+    <li class="pv1" style="list-style: none">
+      <%= link_to 'Watches', watches_path, class: "button is-fullwidth is-info" %>
+    </li>
+  </div>
+</div>
+
+
+<div class="laptop-index-grid pt4">
+  <% @laptops.each do |laptop| %>
+
+    <div class="laptop border-light">
+      <div class="laptop-thumb">
+      <%= link_to image_tag(laptop.image_url(:thumb)), laptop %>
+
+      <% if laptop.condition? %>
+        <div class="condition">
+          <span class="tag is-dark"><%= laptop.condition %></span>
+        </div>
+      <% end %>
+      </div>
+
+
+    <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= link_to laptop.title, laptop %></h3>
+
+      <p class="has-text-gray fg pt1">Sold by <%= laptop.user.name %></p>
+
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(laptop.price) %></p>
+
+      <% if laptop_author(laptop) %>
+         <%= link_to 'Edit', edit_laptop_path(laptop), class: "button is-small" %>
+         <%= link_to 'Delete', laptop, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+
+      <% end %>
+      <span class="tag is-success">Laptop</span>
+
+    </div>
+  </div>
+  <% end %>
+  
+  
+</div>
+

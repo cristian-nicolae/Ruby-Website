@@ -10,7 +10,7 @@ class Smartphone < ApplicationRecord
     validates :price, length: { maximum: 7} 
 
   BRAND = %w{ Apple Samsung Huawei Google Nokia Xiaomi Vivo Oppo Motorola }
-  COLOR = %w{ Black White Gold Blue Red Green Rose Yellow }
+  COLOR = %w{ Black White Gold Blue Red Green Rose Yellow Purple Space Silver }
   CONDITION = %w{ New Excellent Mint Used Fair Poor }
   TYPE = %w{ Guitar Mobile Laptop Headphone }
 

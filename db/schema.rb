@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_114228) do
+ActiveRecord::Schema.define(version: 2020_06_01_142314) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "brand"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2020_05_31_114228) do
     t.string "image"
     t.integer "user_id"
     t.string "type"
+  end
+
+  create_table "laptops", force: :cascade do |t|
+    t.string "brand"
+    t.string "model"
+    t.text "description"
+    t.string "condition"
+    t.string "finish"
+    t.string "title"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.integer "user_id"
+    t.string "OS"
   end
 
   create_table "smartphones", force: :cascade do |t|
@@ -53,6 +68,20 @@ ActiveRecord::Schema.define(version: 2020_05_31_114228) do
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "watches", force: :cascade do |t|
+    t.string "brand"
+    t.string "model"
+    t.text "description"
+    t.string "condition"
+    t.string "color"
+    t.string "title"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.integer "user_id"
   end
 
 end
