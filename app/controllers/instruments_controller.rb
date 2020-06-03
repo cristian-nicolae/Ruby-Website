@@ -6,8 +6,40 @@ class InstrumentsController < ApplicationController
   # GET /instruments.json
   def index
     @instruments = Instrument.all.order("created_at desc")
-    @smartphones = Smartphone.all.order("created_at desc")
+    
   end
+
+  def instrument_brand_ibanez
+    @instruments = Instrument.where(brand: "Ibanez")
+  end
+
+  def instrument_brand_gibson
+    @instruments = Instrument.where(brand: "Gibson")
+  end
+
+  def instrument_brand_epiphone
+    @instruments = Instrument.where(brand: "Epiphone")
+  end
+
+  def instrument_brand_fender
+    @instruments = Instrument.where(brand: "Fender")
+  end
+
+  def instrument_brand_dean
+    @instruments = Instrument.where(brand: "Dean")
+  end
+
+   def instrument_price_0_1000
+    @instruments = Instrument.where(" price < 1000 ")
+   end
+
+   def instrument_price_1000_2000
+    @instruments = Instrument.where("price between 1000 and 2000")
+   end
+
+   def instrument_price_2000_3000
+    @instruments = Instrument.where(" price between 2000 and 3000 ")
+   end
 
   # GET /instruments/1
   # GET /instruments/1.json

@@ -8,6 +8,36 @@ class SmartphonesController < ApplicationController
     @smartphones = Smartphone.all.order("created_at desc")
   end
 
+  def smartphone_brand_huawei
+    @smartphones = Smartphone.where(brand: "Huawei")
+  end
+
+  def smartphone_brand_apple
+    @smartphones = Smartphone.where(brand: "Apple")
+  end
+
+  def smartphone_brand_samsung
+    @smartphones = Smartphone.where(brand: "Samsung")
+  end
+
+  def smartphone_brand_oppo
+    @smartphones = Smartphone.where(brand: "Oppo")
+  end
+
+  def smartphone_brand_xiaomi
+    @smartphones = Smartphone.where(brand: "Xiaomi")
+  end
+
+  def smartphone_price_0_250
+    @smartphones = Smartphone.where("price < 250")
+  end
+  def smartphone_price_250_500
+    @smartphones = Smartphone.where("price between 250 and 500")
+  end
+  def smartphone_price_500_1000
+    @smartphones = Smartphone.where("price between 500 and 1000")
+  end
+
   # GET /smartphones/1
   # GET /smartphones/1.json
   def show

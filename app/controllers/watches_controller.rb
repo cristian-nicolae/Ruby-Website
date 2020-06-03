@@ -5,8 +5,13 @@ class WatchesController < ApplicationController
   # GET /instruments
   # GET /instruments.json
   def index
-    @watches = Watch.all.order("created_at desc")
+   @watches = Watch.all.order("created_at desc")
+    
   end
+
+  
+    
+  
 
   # GET /instruments/1
   # GET /instruments/1.json
